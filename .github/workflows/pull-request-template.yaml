@@ -1,0 +1,51 @@
+name: Check linter with typecheck and build test
+
+on:
+  workflow_call:
+    inputs:
+      SCOPE:
+        type: string
+        required: true
+
+jobs:
+  checker:
+    name: Check linter and test build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: Setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8.6.9
+
+      - name: Get pnpm store directory
+        shell: bash
+        run: |
+          echo "STORE_PATH=$(pnpm store path --silent)" >> $GITHUB_ENV
+
+      - uses: actions/cache@v3
+        name: Setup pnpm cache
+        with:
+          path: ${{ env.STORE_PATH }}
+          key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-pnpm-store-
+
+      - name: Install Dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Check eslint
+        run: pnpm run lint --filter ${{ inputs.SCOPE }}
+
+      - name: Check typescript types
+        run: pnpm run typecheck --filter ${{ inputs.SCOPE }}
+
+      - name: Run Build
+        run: pnpm run build --filter ${{ inputs.SCOPE }}

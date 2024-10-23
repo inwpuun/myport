@@ -1,0 +1,19 @@
+name: Check linter and build web on pull request
+
+on:
+  pull_request:
+    branches:
+      - master
+      - dev
+    paths:
+      - ./**
+
+jobs:
+  checker:
+    strategy:
+      matrix:
+        node-version: [18.x]
+        platform: [ubuntu-latest]
+    uses: ./.github/workflows/pull-request-template.yaml
+    with:
+      SCOPE: web
