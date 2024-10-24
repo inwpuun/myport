@@ -34,6 +34,7 @@ export default function CosmicLanding() {
               <motion.a
                 href="/cv.pdf"
                 download="Puun_CV.pdf"
+                download="Puun_CV.pdf"
                 className="rounded-xl text-white px-8 py-2 text-2xl font-semibold transition-all "
                 initial={{ y: 25, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
