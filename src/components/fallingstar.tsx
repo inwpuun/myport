@@ -3,8 +3,8 @@
 import React, { useEffect, useState } from "react";
 
 const LINE_COUNT = 20;
-const MIN_DURATION = 2;
-const MAX_DURATION = 5;
+const MIN_DURATION = 4;
+const MAX_DURATION = 8;
 
 interface Line {
   id: number;
@@ -35,7 +35,7 @@ export default function FallingLines() {
       {lines.map((line) => (
         <div
           key={line.id}
-          className="absolute bg-gradient-to-b from-blue-400 to-transparent opacity-70 animate-fall-slant"
+          className="absolute bg-gradient-to-b from-transparent to-blue-400 opacity-70 animate-fall-slant"
           style={{
             left: line.left,
             width: `${line.width}px`,

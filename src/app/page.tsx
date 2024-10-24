@@ -3,8 +3,11 @@
 // import { useState, useEffect } from 'react'
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 export default function CosmicLanding() {
+  const router = useRouter();
+
   return (
     <div className="h-screen w-full">
       {/* Planets */}
@@ -66,7 +69,7 @@ export default function CosmicLanding() {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 1, delay: 0.25 }}
           onClick={() => {
-            window.location.href = "/home";
+            router.push("/home");
           }}
         >
           <div className="group relative inline-block hover:text-[#020818] rounded-[16px] border-2 border-white p-4 overflow-hidden ">

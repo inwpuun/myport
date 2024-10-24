@@ -1,8 +1,14 @@
-import FallingStars from "@/components/fallingstar";
+"use client"
+
+// import FallingStars from "@/components/fallingstar";
+import { motion } from "framer-motion";
 import React from "react";
 
-type Props = {};
-
-export default function page({}: Props) {
-  return <FallingStars />;
+export default function page() {
+  return <motion.div
+  animate={{ x: 100 }}
+  transition={{ duration: 1, ease: "linear" }}
+>
+  Moving Element
+</motion.div>
 }

@@ -1,8 +1,10 @@
 "use client";
 
+import WorkExperienceGrid from "@/app/home/components/WorkExperience";
 import { DownloadSimple, GraduationCap } from "@phosphor-icons/react";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import EducationCard from "./components/EducationCard";
 
 export default function CosmicLanding() {
   return (
@@ -10,16 +12,14 @@ export default function CosmicLanding() {
       <div className="relative z-10 flex flex-col w-[94%] h-5/6 p-10 bg-[rgba(2,18,24,0.3)] rounded-[16px] shadow-[0_4px_30px_rgba(0,0,0,0.1)] backdrop-blur-[3.5px] border-[1px] border-[hsla(243,38%,29%,1)]">
         <div className="flex w-full">
           <div className="w-max">
-          {/* <div className="w-full"> */}
             <motion.div
-              className="w-[300px] h-[300px] ml-20"
-              initial={{ y: -50, opacity: 0 }}
+              className="w-[300px] h-[300px] ml-20 hover:scale-105 transition-transform duration-300"
+              initial={{ y: -25, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 1 }}
             >
               <Image src="/me.jpg" alt="me" fill className="rounded-2xl" />
             </motion.div>
-          {/* </div> */}
           </div>
           <div className="flex flex-col">
             <div className="flex justify-between items-center">
@@ -33,7 +33,7 @@ export default function CosmicLanding() {
               </motion.h1>
               <motion.a
                 href="/cv.pdf"
-                download='Puun_CV.pdf'
+                download="Puun_CV.pdf"
                 className="rounded-xl text-white px-8 py-2 text-2xl font-semibold transition-all "
                 initial={{ y: 25, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
@@ -61,31 +61,59 @@ export default function CosmicLanding() {
           </div>
         </div>
 
-        <div className="flex ">
-          <div className="flex flex-col gap-8">
-          <div className="flex mt-10 items-center gap-4 text-4xl">
-            <GraduationCap />
-            My Education
-          </div>
-          <div className="flex gap-5 items-center">
-            <Image src="/cu.png" alt="education" width={80} height={80} className="rounded-full border-4 border-blue-700" />
-            <div className="flex flex-col gap-2">
-              <div className="flex justify-between">
-                <p className="text-lg font-bold">Chulalongkorn University</p>
-                <p className="text-md text-gray-400">2017 - 2021</p>
-              </div>
-              <p className="text-md text-gray-400">Bachelor&apos;s Degree of Computer Engineering (B.Eng.)</p>
-
-
+        <div className="flex gap-10 w-full">
+          <div className="flex flex-col gap-8 w-max">
+              <motion.div
+                initial={{ x: -24, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ duration: 1, delay: 0.7 }}
+              >
+            <div className="flex mt-10 items-center gap-4 text-4xl">
+              <GraduationCap />
+              My Education
             </div>
-
-
+              </motion.div>
+            <motion.div
+            className="w-max"
+              initial={{ x: -24, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: 1, delay: 0.75 }}
+            >
+            <EducationCard
+              title="Chulalongkorn University"
+              imagesrc="/cu.png"
+              period="2021 - present"
+              description="Bachelor's Degree of Computer Engineering (B.Eng.)"
+            />
+            </motion.div>
+            <motion.div
+              className="w-max"
+              initial={{ x: -24, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: 1, delay: 1 }}
+            >
+            <EducationCard
+              title="Satriwitthaya 2 School"
+              imagesrc="/sw2.png"
+              period="2014 - 2020"
+              description="High School and Intermediate"
+            />
+            </motion.div>
           </div>
-
+          <div className="flex flex-col gap-8">
+              <motion.div
+                initial={{ x: -24, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ duration: 1, delay: 1.2 }}
+              >
+            <div className="flex mt-10 items-center gap-4 text-4xl">
+              <GraduationCap />
+              My Experience
+            </div>
+              </motion.div>
+            <WorkExperienceGrid />
           </div>
         </div>
-
-
       </div>
     </div>
   );
