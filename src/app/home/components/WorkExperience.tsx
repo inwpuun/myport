@@ -42,7 +42,7 @@ export default function WorkExperienceGrid() {
   ]);
 
   return (
-      <div className="max-lg:grid max-lg:col-span-1 flex gap-4 snap-x snap-mandatory overflow-x-auto">
+      <div className="max-lg:grid max-lg:col-span-1 flex gap-4 snap-x snap-mandatory overflow-x-auto overflow-y-hidden">
         {experiences.map((exp, index) => (
           <motion.a
             href={exp.href}
