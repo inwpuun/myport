@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { BackgroundProvider } from "@/providers/background";
 import { Toast } from "@/components/ui";
-import { SpeedInsights } from "@vercel/speed-insights/next"
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
   title: "Puun - website",
@@ -18,7 +18,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <BackgroundProvider>{children}</BackgroundProvider>
-        <Toast theme="dark"  />
+        <Toast theme="dark" />
         <SpeedInsights />
       </body>
     </html>
