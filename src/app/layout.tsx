@@ -19,6 +19,7 @@ export default function RootLayout({
       <body>
         <BackgroundProvider>{children}</BackgroundProvider>
         <Toast theme="dark"  />
+        <SpeedInsights />
       </body>
     </html>
   );
