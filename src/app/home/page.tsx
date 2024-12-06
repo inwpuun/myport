@@ -5,24 +5,31 @@ import { DownloadSimple, GraduationCap } from "@phosphor-icons/react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import EducationCard from "./components/EducationCard";
+import Menubar from "@/components/menubar";
 
 export default function CosmicLanding() {
   return (
     <div className="flex items-center justify-center lg:h-screen w-full">
-      <div className="relative z-10 flex flex-col w-[94%] max-md:mt-4 p-5 md:p-10 bg-[rgba(2,18,24,0.3)] rounded-[16px] shadow-[0_4px_30px_rgba(0,0,0,0.1)] backdrop-blur-[3.5px] border-[1px] border-[hsla(243,38%,29%,1)]">
+      <div className="relative z-10 flex flex-col w-[94%] max-md:mt-4 p-5 md:p-10 bg-[rgba(2,18,24,0.3)] rounded-[16px] shadow-[0_4px_30px_rgba(0,0,0,0.1)] backdrop-blur-[3.5px] border-[1px] border-[hsla(243,38%,29%,1)] text-white">
+        <motion.div
+          className="w-max self-center lg:absolute lg:bottom-10 lg:left-10"
+          initial={{ y: -25, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 1 }}
+        >
+          <Menubar />
+        </motion.div>
+
         <div className="flex w-full max-lg:flex-col max-lg:items-center">
-            <motion.h1
-              className="w-max h-max lg:ml-10 xl:ml-20 my-10 text-4xl sm:text-6xl lg:hidden"
-              initial={{ x: -24, opacity: 0 }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ duration: 1, delay: 0.25 }}
-            >
-              Puun Pinyawat 
-              
-              <span className="text-2xl ml-2">
-              (Puun)
-              </span>
-            </motion.h1>
+          <motion.h1
+            className="w-max h-max lg:ml-10 xl:ml-20 my-10 text-4xl sm:text-6xl lg:hidden text-white"
+            initial={{ x: -24, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 1, delay: 0.25 }}
+          >
+            Puun Pinyawat
+            <span className="text-2xl ml-2">(Puun)</span>
+          </motion.h1>
           <div className="w-max">
             <motion.div
               className="w-[300px] h-[300px] md:ml-5 lg:ml-10 xl:ml-20 hover:scale-105 transition-transform duration-300"
@@ -30,18 +37,19 @@ export default function CosmicLanding() {
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 1 }}
             >
-              <Image src="/me.jpg" alt="me" fill className="rounded-2xl" />
+              <Image src="/me.jpg" alt="me" width={300} height={300} className="rounded-2xl" />
             </motion.div>
           </div>
           <div className="flex flex-col max-lg:flex-col-reverse">
             <div className="flex justify-between items-center max-lg:justify-end">
               <motion.h1
-                className="w-max h-max ml-5 lg:ml-10 xl:ml-20 my-10 lg:text-4xl xl:text-6xl max-lg:hidden"
+                className="w-max h-max ml-5 lg:ml-10 xl:ml-20 my-10 lg:text-4xl xl:text-6xl max-lg:hidden text-white"
                 initial={{ x: -24, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ duration: 1, delay: 0.25 }}
               >
-                Puun Pinyawat (Puun)
+                Puun Pinyawat
+                <span className="text-2xl xl:text-4xl ml-2">(Puun)</span>
               </motion.h1>
               <motion.a
                 href="/cv.pdf"
@@ -119,7 +127,7 @@ export default function CosmicLanding() {
               transition={{ duration: 1, delay: 1.2 }}
             >
               <div className="flex w-full max-lg:justify-center mt-10 items-center gap-2 md:gap-4 text-3xl md:text-4xl">
-                <GraduationCap className="max-md:w-6 max-md:h-6"/>
+                <GraduationCap className="max-md:w-6 max-md:h-6" />
                 My Experience
               </div>
             </motion.div>
