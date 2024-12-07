@@ -9,8 +9,6 @@ export * from "./toolbar";
 export * from "./toggle";
 export * from "./separator";
 export * from "./tooltip";
-export * from "./tree";
-export * from "./checkbox";
 export * from "./toast";
 export * from "./button";
 export * from "./loader";
